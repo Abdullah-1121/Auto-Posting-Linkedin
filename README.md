@@ -24,9 +24,36 @@ The workflow is built using Zapier and integrates with a custom GPT that process
 - **Custom GPT**: You need to have a custom GPT created for handling LinkedIn posts.
 - **LinkedIn Account**: To authenticate and post content.
 
-## Installation
+## Setup
 
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/yourusername/post-on-linkedin.git
-   cd post-on-linkedin
+### 1. Setup Zapier Webhook
+
+- Create a new Zap in Zapier.
+- Set up a trigger using **Webhooks by Zapier**.
+- Configure the trigger to receive data from your custom GPT.
+
+### 2. Custom GPT Setup
+
+Ensure your custom GPT is configured to accept the following inputs:
+
+- **Title**: The title of the LinkedIn post.
+- **Body**: The main content of the LinkedIn post.
+- **Image URL**: The URL of the image to be included in the post.
+
+### 3. Connect LinkedIn to Zapier
+
+- Add LinkedIn as the action app in your Zap.
+- Set up the action to create a new post with the data provided by the webhook (Title, Body, Image URL).
+
+## Usage
+
+### 1. Trigger the Post
+
+Send a request to the Zapier webhook URL with the required data:
+
+```json
+{
+  "title": "Your Post Title",
+  "body": "The content of your LinkedIn post.",
+  "image_url": "https://example.com/your-image.jpg"
+}
